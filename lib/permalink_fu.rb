@@ -100,7 +100,7 @@ module PermalinkFu
 
       # Otherwise find the limit and crop the permalink
       limit   = self.class.columns_hash[self.class.permalink_field].limit
-      base    = send("#{self.class.permalink_field}=", read_attribute(self.class.permalink_field)[0..limit - 1])
+      base    = read_attribute(self.class.permalink_field)[0..limit - 1]
       [limit, base]
     end
 
